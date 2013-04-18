@@ -262,20 +262,20 @@ onoremap <silent> { :<C-U>call ParagraphMove(-1, 0, v:count)<CR>
 " vnoremap <silent> { :<C-U>call ParagraphMove(-1, 1)<CR>
 
 " misc commands
-command! Availability execute "normal! :r ~/.vim/templates/Availability\<CR>"
-command! BookablePlans execute "normal! :r ~/.vim/templates/BookablePlans\<CR>"
+command! Availability execute "normal! k:r ~/.vim/templates/Availability\<CR>"
+command! BookablePlans execute "normal! k:r ~/.vim/templates/BookablePlans\<CR>"
 command! Breakpoint execute "normal! O$DB::single=1;"
-command! Cluck execute "normal! :r ~/.vim/templates/Cluck\<CR>"
-command! CRS execute "normal! :r ~/.vim/templates/CRS\<CR>"
+command! Cluck execute "normal! k:r ~/.vim/templates/Cluck\<CR>"
+command! CRS execute "normal! k:r ~/.vim/templates/CRS\<CR>"
 command! Date execute "normal! isprintf \"%4d-%02d-%02d\", "
-command! DBH execute "normal! :r ~/.vim/templates/DBH\<CR>"
-command! DBIAll execute "normal! :r ~/.vim/templates/DBIAll\<CR>"
-command! DBIRow execute "normal! :r ~/.vim/templates/DBIRow\<CR>"
-command! Dumper execute "normal! :r ~/.vim/templates/Dumper\<CR>2j$hh"
+command! DBH execute "normal! k:r ~/.vim/templates/DBH\<CR>"
+command! DBIAll execute "normal! k:r ~/.vim/templates/DBIAll\<CR>"
+command! DBIRow execute "normal! k:r ~/.vim/templates/DBIRow\<CR>"
+command! Dumper execute "normal! k:r ~/.vim/templates/Dumper\<CR>2j$hh"
 command! Parent execute "normal! :let _s=@/\<CR>/^use [base|parent]\<CR>WWl\<C-w>f:let @/=_s\<CR>\<C-w>_"
-command! Printer execute "normal! :r ~/.vim/templates/Printer\<CR>j$"
-command! Sub execute "normal! :r ~/.vim/templates/Sub\<CR>W"
-command! Time execute "normal! :r ~/.vim/templates/Time\<CR>"
+command! Printer execute "normal! k:r ~/.vim/templates/Printer\<CR>j$"
+command! Sub execute "normal! k:r ~/.vim/templates/Sub\<CR>W"
+command! Time execute "normal! k:r ~/.vim/templates/Time\<CR>"
 command! Use execute "normal! :let _s=@/\<CR>mvlBy$G?^use\<CR>o\<Esc>P0iuse \<Esc>/[^A-Za-z: ]\<CR>C;\<Esc>:let @/=_s\<CR>"
 
 
