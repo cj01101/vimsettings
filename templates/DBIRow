@@ -1,0 +1,4 @@
+my $row = $dbh->selectrow_arrayref(
+    '',
+    undef,
+);

@@ -1,0 +1,8 @@
+my $rows = $dbh->selectall_arrayref(
+    '',
+    undef,
+);
+foreach my $row ( @$rows )
+{
+}
+

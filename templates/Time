@@ -1,0 +1,6 @@
+use Time::HiRes qw( gettimeofday tv_interval );
+my $start_time = [ gettimeofday() ];
+
+my $elapsed = tv_interval( $start_time, [ gettimeofday() ] );
+print "elapsed = $elapsed\n";
+

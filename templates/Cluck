@@ -1,0 +1,2 @@
+use CGI::Carp 'cluck';
+cluck "hi";

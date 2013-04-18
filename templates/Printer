@@ -1,0 +1,2 @@
+use Data::Printer { max_depth => 0 };
+print p ;
