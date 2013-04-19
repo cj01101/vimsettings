@@ -262,13 +262,9 @@ onoremap <silent> { :<C-U>call ParagraphMove(-1, 0, v:count)<CR>
 " vnoremap <silent> { :<C-U>call ParagraphMove(-1, 1)<CR>
 
 " misc commands
-command! Availability execute "normal! k:r ~/.vim/templates/Availability\<CR>"
-command! BookablePlans execute "normal! k:r ~/.vim/templates/BookablePlans\<CR>"
 command! Breakpoint execute "normal! O$DB::single=1;"
 command! Cluck execute "normal! k:r ~/.vim/templates/Cluck\<CR>"
-command! CRS execute "normal! k:r ~/.vim/templates/CRS\<CR>"
 command! Date execute "normal! isprintf \"%4d-%02d-%02d\", "
-command! DBH execute "normal! k:r ~/.vim/templates/DBH\<CR>"
 command! DBIAll execute "normal! k:r ~/.vim/templates/DBIAll\<CR>"
 command! DBIRow execute "normal! k:r ~/.vim/templates/DBIRow\<CR>"
 command! Dumper execute "normal! k:r ~/.vim/templates/Dumper\<CR>2j$hh"
@@ -293,3 +289,8 @@ function! s:NextTextObject(motion)
   let c = nr2char(getchar())
   exe "normal! f".c."v".a:motion.c
 endfunction
+
+if filereadable("/home/chrisj/.vim.work")
+    so /home/chrisj/.vim.work
+endif
+
