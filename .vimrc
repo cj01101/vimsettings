@@ -59,7 +59,8 @@ map :b<CR> :e ~/.vim/bookmarks<CR>
 setlocal isfname+=:
 
 " Lineup on =
-map <c-l> :Lineup =<CR>
+"map <c-l> :Lineup =<CR>
+map <c-l> :Tab /=<CR>
 
 
 " Tab completion.
