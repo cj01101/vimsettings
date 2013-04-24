@@ -58,9 +58,9 @@ map :b<CR> :e ~/.vim/bookmarks<CR>
 " open a perl module under cursor
 setlocal isfname+=:
 
-" Lineup on =
-"map <c-l> :Lineup =<CR>
-map <c-l> :Tab /=<CR>
+" Tabularize
+map \= :Tab /=<CR>
+map \> :Tab /=><CR>
 
 
 " Tab completion.
