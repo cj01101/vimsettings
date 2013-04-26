@@ -216,6 +216,9 @@ command! W execute ":w"
 command! Q execute ":q"
 command! Qa execute ":qa"
 
+" sudo save
+command! Sudo execute ":w !sudo tee %"
+
 " set working dir to dir of current file
 nnoremap ,cd :cd %:p:h<CR>
 
