@@ -116,7 +116,7 @@ vmap <c-o> :m'<-2<CR>gv
 set nobackup
 set nowritebackup
 
-set textwidth=80
+set textwidth=0
 set wrap
 
 " perl compiler
