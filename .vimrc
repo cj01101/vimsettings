@@ -29,6 +29,7 @@ set background=dark
 
 
 set number
+map \n :set nonumber!<CR>
 
 " don't highlight matching paren
 let loaded_matchparen = 1
