@@ -259,7 +259,7 @@ endfunction
 
 " Function: s:svnFunctions.Status(argList) {{{2
 function! s:svnFunctions.Status(argList)
-	let options = ['-u']
+	let options = []
 	if len(a:argList) != 0
 		let options = a:argList
 	endif
