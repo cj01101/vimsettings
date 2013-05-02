@@ -27,9 +27,12 @@ set hlsearch
 
 set background=dark
 
-
+" toggle number
 set number
 map \n :set nonumber!<CR>
+
+" toggle paste
+set pastetoggle=<leader>p
 
 " don't highlight matching paren
 let loaded_matchparen = 1
