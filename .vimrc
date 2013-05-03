@@ -276,11 +276,17 @@ command! Date execute "normal! isprintf \"%4d-%02d-%02d\", "
 command! DBIAll execute "normal! k:r ~/.vim/templates/DBIAll\<CR>"
 command! DBIRow execute "normal! k:r ~/.vim/templates/DBIRow\<CR>"
 command! Dumper execute "normal! k:r ~/.vim/templates/Dumper\<CR>2j$hh"
+command! Newscratch execute "normal! :new\<CR>:setlocal buftype=nofile\<CR>"
 command! Parent execute "normal! :let _s=@/\<CR>/^use [base|parent]\<CR>WWl\<C-w>f:let @/=_s\<CR>\<C-w>_"
 command! Printer execute "normal! k:r ~/.vim/templates/Printer\<CR>j$"
 command! Sub execute "normal! k:r ~/.vim/templates/Sub\<CR>W"
 command! Time execute "normal! k:r ~/.vim/templates/Time\<CR>"
 command! Use execute "normal! :let _s=@/\<CR>mvlBy$G?^use\<CR>o\<Esc>P0iuse \<Esc>/[^A-Za-z: ]\<CR>C;\<Esc>:let @/=_s\<CR>"
+
+" workaround for: VCSCommit doesn't work on all open windows
+command! DumpFileName execute "normal! :let @\" = expand(\"%\")\<CR>\<C-w>ko\<Esc>p"
+command! StageFile execute "normal! :DumpFileName\<CR>\<C-w>j:quit\<CR>"
+command! CommitFiles execute "normal! ggj\<S-v>}JIsvn commit \<Esc>0v$h\"vy:!\<C-r>v\<CR>"
 
 
 " from http://stackoverflow.com/a/14651443/59867:
