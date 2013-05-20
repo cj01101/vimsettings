@@ -1,0 +1,2 @@
+$date = sprintf "%4d-%02d-%02d", Add_Delta_YMD( split( '-', $date ), 0, 0, 1 );
+

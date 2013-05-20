@@ -270,6 +270,7 @@ onoremap <silent> { :<C-U>call ParagraphMove(-1, 0, v:count)<CR>
 " vnoremap <silent> { :<C-U>call ParagraphMove(-1, 1)<CR>
 
 " misc commands
+command! DateAdd execute "normal! k:r ~/.vim/templates/DateAdd\<CR>"
 command! Breakpoint execute "normal! O$DB::single=1;"
 command! Cluck execute "normal! k:r ~/.vim/templates/Cluck\<CR>"
 command! Date execute "normal! isprintf \"%4d-%02d-%02d\", "
