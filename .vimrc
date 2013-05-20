@@ -213,8 +213,9 @@ map \a <C-a>
 "au BufWinLeave *? mkview
 "au BufWinEnter *? silent loadview
 
-" fix :W typo
+" fix :W typos
 command! W execute ":w"
+command! Wq execute ":wq"
 
 " fix :Q typos
 command! Q execute ":q"
@@ -270,10 +271,10 @@ onoremap <silent> { :<C-U>call ParagraphMove(-1, 0, v:count)<CR>
 " vnoremap <silent> { :<C-U>call ParagraphMove(-1, 1)<CR>
 
 " misc commands
-command! DateAdd execute "normal! k:r ~/.vim/templates/DateAdd\<CR>"
 command! Breakpoint execute "normal! O$DB::single=1;"
 command! Cluck execute "normal! k:r ~/.vim/templates/Cluck\<CR>"
 command! Date execute "normal! isprintf \"%4d-%02d-%02d\", "
+command! DateAdd execute "normal! k:r ~/.vim/templates/DateAdd\<CR>"
 command! DBIAll execute "normal! k:r ~/.vim/templates/DBIAll\<CR>"
 command! DBIRow execute "normal! k:r ~/.vim/templates/DBIRow\<CR>"
 command! Dumper execute "normal! k:r ~/.vim/templates/Dumper\<CR>2j$hh"
