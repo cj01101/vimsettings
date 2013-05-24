@@ -187,8 +187,9 @@ map r <Nop>
 map N Nzz
 map n nzz
 
-" less keystrokes
-nnoremap ; :
+" less keystrokes: http://vim.wikia.com/wiki/Map_semicolon_to_colon
+map ; :
+noremap ;; ;
 
 " jump to line+column
 nnoremap ' `
@@ -225,7 +226,7 @@ command! Qa execute ":qa"
 command! Sudo execute ":w !sudo tee %"
 
 " set working dir to dir of current file
-nnoremap ,cd :cd %:p:h<CR>
+"nnoremap ,cd :cd %:p:h<CR>
 
 " curly should jump to lines with only spaces
 function! ParagraphMove(delta, visual, count)
