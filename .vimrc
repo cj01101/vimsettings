@@ -107,14 +107,14 @@ function! Mosh_Auto_Highlight_Toggle()
 endfunction
 
 " move the current line up or down
-nmap <c-p> :m+<CR>
-nmap <c-o> :m-2<CR>
-imap <c-p> <C-O>:m+<CR><C-O>
-imap <c-o> <C-O>:m-2<CR><C-O>
-
-" move the selected block up or down
-vmap <c-p> :m'>+<CR>gv
-vmap <c-o> :m'<-2<CR>gv
+"nmap <c-p> :m+<CR>
+"nmap <c-o> :m-2<CR>
+"imap <c-p> <C-O>:m+<CR><C-O>
+"imap <c-o> <C-O>:m-2<CR><C-O>
+"
+"" move the selected block up or down
+"vmap <c-p> :m'>+<CR>gv
+"vmap <c-o> :m'<-2<CR>gv
 
 "don't keep a backup
 set nobackup
