@@ -187,9 +187,12 @@ map r <Nop>
 map N Nzz
 map n nzz
 
-" less keystrokes: http://vim.wikia.com/wiki/Map_semicolon_to_colon
+" less keystrokes
 map ; :
-noremap ;; ;
+
+" find next character
+noremap <Right> ;
+noremap <Left> ,
 
 " jump to line+column
 nnoremap ' `
