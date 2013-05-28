@@ -191,8 +191,7 @@ map n nzz
 map ; :
 
 " find next character
-noremap <Right> ;
-noremap <Left> ,
+noremap t ;
 
 " jump to line+column
 nnoremap ' `
