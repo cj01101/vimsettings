@@ -190,12 +190,12 @@ map n nzz
 " less keystrokes
 map ; :
 
-" find next character
-noremap t ;
-
 " jump to line+column
 nnoremap ' `
 nnoremap ` '
+
+" find next character
+noremap ` ;
 
 " ctags dir
 set tags=./tags,/u/tags
