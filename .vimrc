@@ -188,14 +188,14 @@ map N Nzz
 map n nzz
 
 " less keystrokes
-map ; :
+"map ; :
 
 " jump to line+column
 nnoremap ' `
 nnoremap ` '
 
 " find next character
-noremap ` ;
+"noremap ` ;
 
 " ctags dir
 set tags=./tags,/u/tags
@@ -308,6 +308,9 @@ function! s:NextTextObject(motion)
   let c = nr2char(getchar())
   exe "normal! f".c."v".a:motion.c
 endfunction
+
+" bash-style tab complete
+set wildmode=longest,list
 
 if filereadable("/home/chrisj/.vim.work")
     so /home/chrisj/.vim.work
