@@ -209,6 +209,17 @@ function! Braces()
 :endfunction
 map \braces :call Braces()<CR>
 
+
+" convert one-column mysql output to a list of quoted values
+function Quote()
+    let line = getline('.')
+    let line = substitute(line,'^|\ *',"'",'g')
+    let line = substitute(line,'\ *|$',"', ",'g')
+    call setline('.', line)
+endfunction
+map \quote :call Quote()<CR>gvJI( <Esc>$hC )<Esc>
+
+
 " increment
 map \a <C-a>
 
