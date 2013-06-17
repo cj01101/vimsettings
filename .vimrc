@@ -211,13 +211,13 @@ map \braces :call Braces()<CR>
 
 
 " convert one-column mysql output to a list of quoted values
-function Quote()
+function QuoteMysql()
     let line = getline('.')
     let line = substitute(line,'^|\ *',"'",'g')
     let line = substitute(line,'\ *|$',"', ",'g')
     call setline('.', line)
 endfunction
-map \quote :call Quote()<CR>gvJI( <Esc>$hC )<Esc>
+map \quote :call QuoteMysql()<CR>gvJI( <Esc>$hC )<Esc>
 
 
 " increment
@@ -322,6 +322,9 @@ endfunction
 
 " bash-style tab complete
 set wildmode=longest,list
+
+" :e %% expands to the path of the active buffer
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 if filereadable("/home/chrisj/.vim.work")
     so /home/chrisj/.vim.work
