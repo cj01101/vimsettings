@@ -37,6 +37,8 @@ set pastetoggle=<leader>p
 " don't highlight matching paren
 let loaded_matchparen = 1
 
+runtime macros/matchit.vim
+
 "set colorscheme
 colorscheme torte
 highlight Folded term=standout ctermbg=6 ctermfg=0
