@@ -332,13 +332,3 @@ if filereadable("/home/chrisj/.vim.work")
     so /home/chrisj/.vim.work
 endif
 
-" Vundle setup
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-filetype plugin indent on
-Bundle 'gmarik/vundle'
-
-" Vundle bundles
-Bundle "tpope/vim-surround"
-
