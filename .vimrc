@@ -34,6 +34,9 @@ map \n :set nonumber!<CR>
 " toggle paste
 set pastetoggle=<leader>p
 
+" clear hlsearch too
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
 " don't highlight matching paren
 let loaded_matchparen = 1
 
