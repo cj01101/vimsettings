@@ -220,13 +220,13 @@ map \braces :call Braces()<CR>
 
 
 " convert one-column mysql output to a list of quoted values
-function QuoteMysql()
+function MysqlQuote()
     let line = getline('.')
     let line = substitute(line,'^|\ *',"'",'g')
     let line = substitute(line,'\ *|$',"', ",'g')
     call setline('.', line)
 endfunction
-map \quote :call QuoteMysql()<CR>gvJI( <Esc>$hC )<Esc>
+map \quote :call MysqlQuote()<CR>gvJI( <Esc>$hC )<Esc>
 
 
 " increment
