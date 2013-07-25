@@ -25,6 +25,10 @@ set incsearch
 "highlight search term
 set hlsearch
 
+"search/replace with registers
+command! LineReplace execute 's//\=@s/g'
+command! GlobalReplace execute '%s//\=@s/g'
+
 set background=dark
 
 " toggle number
