@@ -189,8 +189,8 @@ filetype plugin on
 au FileType * setlocal comments=
 
 " don't use replace mode
-map R <Nop>
-map r <Nop>
+"map R <Nop>
+"map r <Nop>
 
 " search will center on the line it's found in.
 map N Nzz
