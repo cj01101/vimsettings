@@ -76,6 +76,10 @@ map \= :Tab /=<CR>
 map \> :Tab /=><CR>
 
 
+" ack
+":set grepprg=ack\ --nogroup\ --column\ $*
+":set grepformat=%f:%l:%c:%m
+
 " Tab completion.
 function! InsertTabWrapper(direction)
     let col = col('.') - 1
