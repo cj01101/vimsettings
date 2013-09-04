@@ -35,6 +35,9 @@ set background=dark
 set number
 map \n :set nonumber!<CR>
 
+" select all
+map ,a ggVG
+
 " toggle paste
 set pastetoggle=<leader>p
 
