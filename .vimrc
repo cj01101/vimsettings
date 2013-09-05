@@ -37,6 +37,23 @@ map \n :set nonumber!<CR>
 
 " select all
 map ,a ggVG
+" delete all
+map ,d ggVGd
+
+" increment
+map \a <C-a>
+
+" Tabularize
+map \= :Tab /=<CR>
+map \> :Tab /=><CR>
+
+" search will center on the line it's found in.
+map N Nzz
+map n nzz
+
+" jump to line+column
+nnoremap ' `
+nnoremap ` '
 
 " toggle paste
 set pastetoggle=<leader>p
@@ -73,11 +90,6 @@ map :b<CR> :e ~/.vim/bookmarks<CR>
 
 " open a perl module under cursor
 setlocal isfname+=:
-
-" Tabularize
-map \= :Tab /=<CR>
-map \> :Tab /=><CR>
-
 
 " ack
 ":set grepprg=ack\ --nogroup\ --column\ $*
@@ -195,24 +207,6 @@ filetype plugin on
 " stop auto-inserting comments
 au FileType * setlocal comments=
 
-" don't use replace mode
-"map R <Nop>
-"map r <Nop>
-
-" search will center on the line it's found in.
-map N Nzz
-map n nzz
-
-" less keystrokes
-"map ; :
-
-" jump to line+column
-nnoremap ' `
-nnoremap ` '
-
-" find next character
-"noremap ` ;
-
 " ctags dir
 set tags=./tags,/u/tags
 
@@ -225,19 +219,6 @@ function! Braces()
 :endfunction
 map \braces :call Braces()<CR>
 
-
-" convert one-column mysql output to a list of quoted values
-function MysqlQuote()
-    let line = getline('.')
-    let line = substitute(line,'^|\ *',"'",'g')
-    let line = substitute(line,'\ *|$',"', ",'g')
-    call setline('.', line)
-endfunction
-map \quote :call MysqlQuote()<CR>gvJI( <Esc>$hC )<Esc>
-
-
-" increment
-map \a <C-a>
 
 " save/load folds
 "au BufWinLeave *? mkview
@@ -253,9 +234,6 @@ command! Qa execute ":qa"
 
 " sudo save
 command! Sudo execute ":w !sudo tee %"
-
-" set working dir to dir of current file
-"nnoremap ,cd :cd %:p:h<CR>
 
 " curly should jump to lines with only spaces
 function! ParagraphMove(delta, visual, count)
