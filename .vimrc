@@ -51,6 +51,9 @@ map \> :Tab /=><CR>
 map N Nzz
 map n nzz
 
+" easier search without word boundaries
+map # g*
+
 " jump to line+column
 nnoremap ' `
 nnoremap ` '
