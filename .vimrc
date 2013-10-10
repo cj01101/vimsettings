@@ -239,6 +239,9 @@ command! Qa execute ":qa"
 " sudo save
 command! Sudo execute ":w !sudo tee %"
 
+" put path in unnamed register
+command! Path let @" = expand("%:h")
+
 " curly should jump to lines with only spaces
 function! ParagraphMove(delta, visual, count)
     normal m'
