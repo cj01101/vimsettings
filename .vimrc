@@ -40,8 +40,12 @@ map ,a ggVG
 " delete all
 map ,d ggVGd
 
-" increment
+" faster quit
+map \q :q<CR>
+
+" increment/decrement
 map \a <C-a>
+map \x <C-x>
 
 " Tabularize
 map \= :Tab /=<CR>
