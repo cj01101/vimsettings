@@ -43,6 +43,9 @@ map ,d ggVGd
 " faster quit
 map \q :q<CR>
 
+" faster only
+map \o :on<CR>
+
 " increment/decrement
 map \a <C-a>
 map \x <C-x>
