@@ -88,6 +88,7 @@ highlight Folded term=standout ctermbg=6 ctermfg=0
 "switch between windows more easily
 map <c-j> <c-w>j<c-w>_
 map <c-k> <c-w>k<c-w>_
+map <c-_> <c-w>_
 "map <c-h> <c-w>h<c-w>\|
 "map <c-l> <c-w>l<c-w>\|
 set wmh=0
