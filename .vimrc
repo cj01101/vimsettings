@@ -336,6 +336,7 @@ set wildmode=longest,list
 
 " :e %% expands to the path of the active buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+cnoremap <expr> %_ getcmdtype() == ':' ? expand('%') : '%_'
 
 if filereadable("/home/chrisj/.vim.work")
     so /home/chrisj/.vim.work
