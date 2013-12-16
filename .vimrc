@@ -72,6 +72,11 @@ set pastetoggle=<leader>p
 " clear hlsearch too
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+" vimux
+map =t :call VimuxRunCommand( "" )<left><left><left>
+map =l :call VimuxRunLastCommand()<CR>
+map =q :call VimuxCloseRunner()<CR>
+
 " don't highlight matching paren
 let loaded_matchparen = 1
 
@@ -167,8 +172,6 @@ set wrap
 nnoremap <silent> =c :w<Enter>:!perl -wc %<Enter>
 " debugger
 nnoremap <silent> =d :w<Enter>:!perl -d %<Enter>
-" perl critic
-nnoremap <silent> =p :w<Enter>:!perlcritic %<Enter>
 " execute
 au BufEnter * if match( getline(1) , '^\#!') == 0 |
 \ execute("let b:interpreter = getline(1)[2:]") |
