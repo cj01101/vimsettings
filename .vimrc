@@ -73,9 +73,15 @@ set pastetoggle=<leader>p
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " vimux
+function! MyVimuxCD()
+    let path = expand('%:h')
+    call VimuxRunCommand( "cd ".path )
+endfunction
+
 map =t :call VimuxRunCommand( "" )<left><left><left>
 map =l :call VimuxRunLastCommand()<CR>
 map =q :call VimuxCloseRunner()<CR>
+map =p :call MyVimuxCD()<CR>
 
 " don't highlight matching paren
 let loaded_matchparen = 1
