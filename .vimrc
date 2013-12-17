@@ -36,7 +36,7 @@ set number
 map \n :set nonumber!<CR>
 
 " select all
-map \s ggVG
+map \a ggVG
 " delete all
 map \d ggVGd
 
@@ -47,8 +47,8 @@ map \q :q<CR>
 map \o :on<CR>
 
 " increment/decrement
-map \a <C-a>
-map \x <C-x>
+"map \a <C-a>
+"map \x <C-x>
 
 " Tabularize
 map \= :Tab /=<CR>
