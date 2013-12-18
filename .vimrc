@@ -37,8 +37,6 @@ map \n :set nonumber!<CR>
 
 " select all
 map \a ggVG
-" delete all
-map \d ggVGd
 
 " faster quit
 map \q :q<CR>
