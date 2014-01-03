@@ -44,6 +44,9 @@ map \q :q<CR>
 " faster only
 map \o :on<CR>
 
+map \e :E<CR>
+map \- :E<CR>-
+
 " increment/decrement
 "map \a <C-a>
 "map \x <C-x>
