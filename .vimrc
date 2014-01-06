@@ -47,8 +47,8 @@ map \q :q<CR>
 " faster only
 map \o :on<CR>
 
-map \S :Sexplore<CR>
-map \E :Explore<CR>
+map \s :Sexplore<CR>
+map \e :Explore<CR>
 map \- :Explore<CR>-
 
 " increment/decrement
