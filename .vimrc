@@ -48,8 +48,8 @@ map \q :q<CR>
 map \o :on<CR>
 
 map \S :Sexplore<CR>
-map \E :E<CR>
-map \- :E<CR>-
+map \E :Explore<CR>
+map \- :Explore<CR>-
 
 " increment/decrement
 "map \a <C-a>
