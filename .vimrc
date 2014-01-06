@@ -44,7 +44,8 @@ map \q :q<CR>
 " faster only
 map \o :on<CR>
 
-map \e :E<CR>
+map \S :Se<CR>
+map \E :E<CR>
 map \- :E<CR>-
 
 " increment/decrement
