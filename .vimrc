@@ -25,6 +25,9 @@ set incsearch
 "highlight search term
 set hlsearch
 
+"Rolodex mode
+set winheight=999
+
 "search/replace with registers
 command! LineReplace execute 's//\=@s/g'
 command! GlobalReplace execute '%s//\=@s/g'
@@ -44,7 +47,7 @@ map \q :q<CR>
 " faster only
 map \o :on<CR>
 
-map \S :Se<CR>
+map \S :Sexplore<CR>
 map \E :E<CR>
 map \- :E<CR>-
 
