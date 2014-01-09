@@ -94,7 +94,7 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " vimux
 function! MyVimuxCD(command)
-    let path = expand('%:h')
+    let path = expand('%:p')
     call VimuxRunCommand( "cd ".path."; ".a:command )
 endfunction
 
