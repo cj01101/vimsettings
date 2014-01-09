@@ -1,6 +1,6 @@
 my $rows = $dbh->selectall_arrayref(
     '',
-    undef,
+    { Slice => {} },
 );
 foreach my $row ( @$rows )
 {
