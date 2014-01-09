@@ -93,15 +93,24 @@ map \r :call DataPrinter()<CR>
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " vimux
-function! MyVimuxCD()
+function! MyVimuxCD(command)
     let path = expand('%:h')
-    call VimuxRunCommand( "cd ".path )
+    call VimuxRunCommand( "cd ".path."; ".a:command )
+endfunction
+
+function! MyVimuxRunFile(flag)
+    let file = expand('%')
+    call VimuxRunCommand( 'perl '.a:flag.' '.file )
 endfunction
 
 map =t :call VimuxRunCommand( "" )<left><left><left>
 map =l :call VimuxRunLastCommand()<CR>
 map =q :call VimuxCloseRunner()<CR>
-map =p :call MyVimuxCD()<CR>
+map =p :call MyVimuxCD( '' )<CR>
+map =f :call MyVimuxCD( 'fastprove' )<CR>
+map =u :call MyVimuxRunFile('')<CR>
+map =v :call MyVimuxRunFile('-d')<CR>
+
 
 " don't highlight matching paren
 let loaded_matchparen = 1
