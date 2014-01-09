@@ -84,6 +84,11 @@ function! ToggleBreakpoint()
 endfunction
 map \b :call ToggleBreakpoint()<CR>
 
+function! DataPrinter()
+    exe "normal! Ouse Data::Printer { max_depth => 0 };\nprint p ;"
+endfunction
+map \r :call DataPrinter()<CR>
+
 " clear hlsearch too
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
@@ -328,7 +333,6 @@ command! Dumper execute "normal! k:r ~/.vim/templates/Dumper\<CR>2j$hh"
 "command! Failed execute "normal! :!prove % --state=failed --dry"
 command! Newscratch execute "normal! :new\<CR>:setlocal buftype=nofile\<CR>"
 command! Parent execute "normal! :let _s=@/\<CR>/^use [base|parent]\<CR>WWl\<C-w>f:let @/=_s\<CR>\<C-w>_"
-command! Printer execute "normal! k:r ~/.vim/templates/Printer\<CR>j$"
 command! Sub execute "normal! k:r ~/.vim/templates/Sub\<CR>W"
 command! Time execute "normal! k:r ~/.vim/templates/Time\<CR>"
 command! Use execute "normal! :let _s=@/\<CR>mvlBy$G?^use\<CR>o\<Esc>P0iuse \<Esc>/[^A-Za-z: ]\<CR>C;\<Esc>:let @/=_s\<CR>"
