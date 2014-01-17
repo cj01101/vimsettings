@@ -118,8 +118,9 @@ let loaded_matchparen = 1
 runtime macros/matchit.vim
 
 "set colorscheme
-colorscheme torte
-highlight Folded term=standout ctermbg=6 ctermfg=0
+"colorscheme torte
+"highlight Folded term=standout ctermbg=6 ctermfg=0
+colorscheme solarized
 
 "see trailing spaces and tabs
 "set list listchars=tab:\|\ ,trail:_
@@ -267,7 +268,6 @@ function! Braces()
     let replacement = substitute( replacement, ' }', '}', 'g' )
     call setline( '.', replacement )
 :endfunction
-map \braces :call Braces()<CR>
 
 
 " save/load folds
