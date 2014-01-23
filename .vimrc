@@ -60,8 +60,8 @@ map \= :Tab /=<CR>
 map \> :Tab /=><CR>
 
 " search will center on the line it's found in.
-map N Nzz
-map n nzz
+"map N Nzz
+"map n nzz
 
 " * for no word boundaries, # for word boundaries
 nnoremap # *
