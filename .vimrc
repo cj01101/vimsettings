@@ -63,6 +63,10 @@ map \> :Tab /=><CR>
 "map N Nzz
 "map n nzz
 
+" center screen when jumping to a tag
+map <c-]> <c-]>zz
+map <c-w>] <c-w>]zz
+
 " * for no word boundaries, # for word boundaries
 nnoremap # *
 nnoremap * g*
