@@ -208,8 +208,32 @@ set nowritebackup
 set textwidth=0
 set wrap
 
+" shell command
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+"  call setline(1, 'You entered:    ' . a:cmdline)
+"  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+"  call setline(3,substitute(getline(2),'.','=','g'))
+  execute '$read !'. expanded_cmdline
+  setlocal modifiable
+  1
+endfunction
+
 " perl compiler
 nnoremap <silent> =c :w<Enter>:!perl -wc %<Enter>
+" more warnings:
+"nnoremap <silent> =w :w<Enter>:!perl -Wc %<Enter>
+nnoremap <silent> =w :w<Enter>:Shell perl -Wc %<Enter><Enter>GEl"xyT//<c-r>x<Enter>
 " debugger
 nnoremap <silent> =d :w<Enter>:!perl -d %<Enter>
 " execute
