@@ -51,17 +51,9 @@ map \s :Sexplore<CR>
 map \e :Explore<CR>
 map \- :Explore<CR>-
 
-" increment/decrement
-"map \a <C-a>
-"map \x <C-x>
-
 " Tabularize
 map \= :Tab /=<CR>
 map \> :Tab /=><CR>
-
-" search will center on the line it's found in.
-"map N Nzz
-"map n nzz
 
 " center screen when jumping to a tag
 map <c-]> <c-]>zz
@@ -74,6 +66,17 @@ nnoremap * g*
 " jump to line+column
 nnoremap ' `
 nnoremap ` '
+
+" svn shortcuts
+nnoremap Ua :VCSAdd<cr>
+nnoremap Ub :VCSBlame<cr>
+nnoremap Uc :VCSCommit<cr>
+nnoremap Ud :VCSDiff<cr>
+nnoremap Ul :VCSLog<cr>
+nnoremap Ur :!svn resolved %<cr>
+
+" select last inserted text
+nnoremap gV `[v`]
 
 " toggle paste
 set pastetoggle=<leader>p
