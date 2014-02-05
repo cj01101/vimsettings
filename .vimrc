@@ -35,8 +35,8 @@ command! GlobalReplace execute '%s//\=@s/g'
 set background=dark
 
 " toggle number
+"map \n :set nonumber!<CR>  " use 'con' from unimpaired.vim plugin
 set number
-map \n :set nonumber!<CR>
 
 " select all
 map \a ggVG
