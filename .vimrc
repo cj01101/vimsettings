@@ -67,6 +67,9 @@ nnoremap * g*
 nnoremap ' `
 nnoremap ` '
 
+" repeatable "n."
+nnoremap Q :normal n.<CR>
+
 " svn shortcuts
 nnoremap Ua :VCSAdd<cr>
 nnoremap Ub :VCSBlame<cr>
