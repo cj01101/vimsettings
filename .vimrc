@@ -174,36 +174,6 @@ inoremap <tab> <c-r>=InsertTabWrapper ("backward")<cr>
 " only look at current file(s) for autocomplete
 :set complete-=i
 
-" Highlight all instances of word under cursor, when idle.
-" Useful when studying strange source code.
-" Turn on/off with z/ (or key of your choice)
-:map z/ :call Mosh_Auto_Highlight_Toggle()<CR>
-
-:function! Mosh_Auto_Highlight_Cword()
-    :exe "let @/='\\<".expand("<cword>")."\\>'"
-:endfunction
-
-function! Mosh_Auto_Highlight_Toggle()
-    :if exists("#CursorHold#*")
-    :  au! CursorHold *
-    :  let @/=''
-    :else
-    :  set hlsearch
-    :  set updatetime=500
-    :  au! CursorHold * nested call Mosh_Auto_Highlight_Cword()
-    :endif
-endfunction
-
-" move the current line up or down
-"nmap <c-p> :m+<CR>
-"nmap <c-o> :m-2<CR>
-"imap <c-p> <C-O>:m+<CR><C-O>
-"imap <c-o> <C-O>:m-2<CR><C-O>
-"
-"" move the selected block up or down
-"vmap <c-p> :m'>+<CR>gv
-"vmap <c-o> :m'<-2<CR>gv
-
 "don't keep a backup
 set nobackup
 set nowritebackup
@@ -290,7 +260,7 @@ filetype plugin on
 au FileType * setlocal comments=
 
 " ctags dir
-set tags=./tags,/u/tags
+set tags=./tags
 
 " { thing } => {thing}
 function! Braces()
