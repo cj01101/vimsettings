@@ -77,6 +77,7 @@ nnoremap Uc :VCSCommit<cr>
 nnoremap Ud :VCSDiff<cr>
 nnoremap Ul :VCSLog<cr>
 nnoremap Ur :!svn resolved %<cr>
+nnoremap Us :VCSStatus<cr>
 
 " select last inserted text
 nnoremap gV `[v`]
