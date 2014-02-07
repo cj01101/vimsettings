@@ -138,16 +138,15 @@ colorscheme solarized
 "match ErrorMsg /\s\+$/
 
 "switch between windows more easily
-map <c-j> <c-w>j<c-w>_
-map <c-k> <c-w>k<c-w>_
+set wmh=0
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+inoremap <c-j> <esc><c-w>j
+inoremap <c-k> <esc><c-w>k
 map <c-_> <c-w>_
+inoremap <c-_> <esc><c-w>_a
 "map <c-h> <c-w>h<c-w>\|
 "map <c-l> <c-w>l<c-w>\|
-set wmh=0
-set noequalalways " do not resize windows on split/close
-
-" resize when new window under file
-map <c-w>f <c-w>f<c-w>_
 
 " my custom bookmarks
 map :b<CR> :e ~/.vim/bookmarks<CR>
