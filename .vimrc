@@ -82,6 +82,12 @@ nnoremap Us :VCSStatus<cr>
 " select last inserted text
 nnoremap gV `[v`]
 
+" mappings for quote surround updates
+map gq cs"'
+map gQ cs'"
+map g} cs{}
+map g{ cs}{
+
 " toggle paste
 set pastetoggle=<leader>p
 
@@ -264,15 +270,6 @@ au FileType * setlocal comments=
 
 " ctags dir
 set tags=./tags
-
-" { thing } => {thing}
-function! Braces()
-    let curr_line = getline( '.' )
-    let replacement = substitute( curr_line, '{ ', '{', 'g' )
-    let replacement = substitute( replacement, ' }', '}', 'g' )
-    call setline( '.', replacement )
-:endfunction
-
 
 " save/load folds
 "au BufWinLeave *? mkview
