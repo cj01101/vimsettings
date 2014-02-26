@@ -83,8 +83,8 @@ nnoremap Us :VCSStatus<cr>
 nnoremap gV `[v`]
 
 " mappings for quote surround updates
-map gq cs"'
-map gQ cs'"
+map g' cs"'
+map g" cs'"
 map g} cs{}
 map g{ cs}{
 
