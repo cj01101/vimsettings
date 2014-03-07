@@ -73,7 +73,7 @@ nnoremap Q :normal n.<CR>
 " svn shortcuts
 nnoremap Ua :VCSAdd<cr>
 nnoremap Ub :VCSBlame<cr>
-nnoremap Uc :VCSCommit<cr>
+nnoremap Uc :VCSCommit<cr>iissue #
 nnoremap Ud :VCSDiff<cr>
 nnoremap Ul :VCSLog<cr>
 nnoremap Ur :!svn resolved %<cr>
