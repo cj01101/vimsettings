@@ -92,6 +92,9 @@ map g{ cs}{
 " jump to end of next date
 map gd :call search('\v\d{4}-\d{2}-\d{2}')<cr>9l:noh<cr>
 
+" break function params
+map gf $F)hi,<esc>F(ls	<esc>:s/,/,\r/g<cr><s-v>%jj='><<:noh<cr>
+
 " toggle paste
 set pastetoggle=<leader>p
 
