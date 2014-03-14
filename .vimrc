@@ -28,6 +28,14 @@ set hlsearch
 "Rolodex mode
 set winheight=999
 
+" always show at least one line above/below the cursor
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+
 "search/replace with registers
 command! LineReplace execute 's//\=@s/g'
 command! GlobalReplace execute '%s//\=@s/g'
