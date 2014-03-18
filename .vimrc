@@ -120,7 +120,7 @@ map \b :call ToggleBreakpoint()<CR>
 function! DataPrinter()
     exe "normal! Ouse Data::Printer { max_depth => 0 };\nprint p ;"
 endfunction
-map \r :call DataPrinter()<CR>
+map \r :call DataPrinter()<CR>i
 
 " clear hlsearch too
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
