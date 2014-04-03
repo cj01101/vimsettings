@@ -57,7 +57,6 @@ map \o :on<CR>
 
 map \s :Sexplore<CR>
 map \e :Explore<CR>
-map \- :Explore<CR>-
 
 " Tabularize
 map \= :Tab /=<CR>
