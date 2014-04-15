@@ -365,6 +365,9 @@ command! DumpFileName execute "normal! :let @\" = expand(\"%\")\<CR>\<C-w>ko\<Es
 command! StageFile execute "normal! :DumpFileName\<CR>\<C-w>j:quit\<CR>"
 command! CommitFiles execute "normal! ggj\<S-v>}JIsvn commit \<Esc>0v$h\"vy:!\<C-r>v\<CR>"
 
+" open a new window below the current one
+command! Newx execute "normal! :new\<CR>\<C-w>x\<C-w>j"
+
 
 " from http://stackoverflow.com/a/14651443/59867:
 " Motion for "next object". For example, "din(" would go to the next "()" pair
