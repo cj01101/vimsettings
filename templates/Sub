@@ -1,6 +1,6 @@
 sub todo
 {
     my ( $self, %param ) = @_;
-    my () = @param{ qw// };
+    my () = @param{ qw( ) };
 }
 
