@@ -102,7 +102,7 @@ map gd :call search('\v\d{4}-\d{2}-\d{2}')<cr>9l:noh<cr>
 map gD B:call search('\v\d{4}-\d{2}-\d{2}', 'b')<cr>9l:noh<cr>
 
 " break function params
-map gF $F)hi,<esc>F(ls	<esc>:s/,/,\r/g<cr><s-v>%jj='><<:noh<cr>
+map gF $F)hi,<esc>$F)%ls	<esc>:s/,/,\r/g<cr><s-v>%jj='><<:noh<cr>
 
 " toggle paste
 set pastetoggle=<leader>p
