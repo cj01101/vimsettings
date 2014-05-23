@@ -125,15 +125,35 @@ map \r :call DataPrinter()<CR>i
 " clear hlsearch too
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+" determine filetype
+function! GetFileType()
+  let filename = tolower(bufname('%'))
+  let pos = matchend(filename, '\.') - 1
+  let len = strlen(filename) - pos
+  let fileType = strpart(filename, pos, len)
+  return fileType
+endfunction
+
 " vimux
 function! MyVimuxCD(command)
     let path = expand('%:p')
     call VimuxRunCommand( "cd ".path."; ".a:command )
 endfunction
 
-function! MyVimuxRunFile(flag)
+function! MyVimuxRunFile()
+    let filetype = GetFileType()
     let file = expand('%')
-    call VimuxRunCommand( 'perl '.a:flag.' '.file )
+    if filetype == '.t'
+        call VimuxRunCommand( 'prove --verbose --comments --recurse -Pretty '.file )
+    else
+        call VimuxRunCommand( '!'.file )
+    endif
+endfunction
+
+function! MyVimuxPerlDebug()
+    let filetype = GetFileType()
+    let file = expand('%')
+    call VimuxRunCommand( 'perl -d '.file )
 endfunction
 
 map =t :call VimuxRunCommand( "" )<left><left><left>
@@ -141,8 +161,8 @@ map =l :call VimuxRunLastCommand()<CR>
 map =q :call VimuxCloseRunner()<CR>
 map =p :call MyVimuxCD( '' )<CR>
 map =f :call MyVimuxCD( 'fastprove' )<CR>
-map =u :call MyVimuxRunFile('')<CR>
-map =v :call MyVimuxRunFile('-d')<CR>
+map =u :call MyVimuxRunFile()<CR>
+map =v :call MyVimuxPerlDebug()<CR>
 
 
 " don't highlight matching paren
@@ -234,16 +254,18 @@ nnoremap <silent> =c :w<Enter>:!perl -wc %<Enter>
 nnoremap <silent> =w :w<Enter>:Shell perl -Wc %<Enter><Enter>GEl"xyT//<c-r>x<Enter>
 " debugger
 nnoremap <silent> =d :w<Enter>:!perl -d %<Enter>
+
 " execute
-au BufEnter * if match( getline(1) , '^\#!') == 0 |
-\ execute("let b:interpreter = getline(1)[2:]") |
-\endif
-fun! CallInterpreter()
-    if exists("b:interpreter")
-         exec ("!".b:interpreter." %")
+function! MyRunFile()
+    let filetype = GetFileType()
+    if filetype == '.t'
+        " use Test::Pretty
+        execute "!prove --verbose --comments --recurse -Pretty %"
+    else
+        execute "!%"
     endif
-endfun
-nnoremap <silent> =r :w<Enter>:call CallInterpreter()<CR>
+endfunction
+nnoremap <silent> =r :w<Enter>:call MyRunFile()<CR>
 
 " Executes a command (across a given range) and restores the search register
 " when done.
@@ -256,15 +278,6 @@ endfunction
 com! -range -nargs=+ SS call SafeSearchCommand(<line1>, <line2>, <q-args>)
 " A nicer version of :s that doesn't clobber the search register
 com! -range -nargs=* S call SafeSearchCommand(<line1>, <line2>, 's' . <q-args>)
-
-" determine filetype for comments
-function! GetFileType()
-: let filename = tolower(bufname('%'))
-: let pos = matchend(filename, '\.') - 1
-: let len = strlen(filename) - pos
-: let fileType = strpart(filename, pos, len)
-: return fileType
-:endfunction
 
 let filetype = GetFileType()
 if filetype == '.py'
