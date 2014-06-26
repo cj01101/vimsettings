@@ -1,4 +1,3 @@
 my $row = $dbh->selectrow_arrayref(
     '',
-    { Slice => {} },
 );
