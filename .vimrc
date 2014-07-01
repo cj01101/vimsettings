@@ -109,11 +109,7 @@ set pastetoggle=<leader>p
 
 " breakpoint
 function! ToggleBreakpoint()
-    if getline(".") =~ 'DB::single=1'
-        exe "normal! dd"
-    else
-        exe "normal! O$DB::single=1;"
-    endif
+    exe "normal! O$DB::single=1; # TODO"
 endfunction
 map \b :call ToggleBreakpoint()<CR>
 
@@ -260,7 +256,8 @@ function! MyRunFile()
     let filetype = GetFileType()
     if filetype == '.t'
         " use Test::Pretty
-        execute "!prove --verbose --comments --recurse -Pretty %"
+        " execute "!prove --verbose --comments --recurse -Pretty %"
+        execute "!prove --verbose --comments --recurse %"
     else
         execute "!%"
     endif
