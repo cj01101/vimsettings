@@ -62,6 +62,11 @@ map \e :Explore<CR>
 map \= :Tab /=<CR>
 map \> :Tab /=><CR>
 
+" tabs
+map \tn :tabnew<cr>
+map \to :tabonly<cr>
+map \tc :tabclose<cr>
+
 " center screen when jumping to a tag
 map <c-]> <c-]>zz
 map <c-w>] <c-w>]zz
@@ -176,15 +181,26 @@ colorscheme solarized
 "match ErrorMsg /\s\+$/
 
 "switch between windows more easily
+
+func! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        wincmd n
+        if (a:key == 'j')
+            wincmd x
+        endif
+        exec "wincmd ".a:key
+        exec ":setlocal buftype=nofile"
+    endif
+endfu
+
+nnoremap <silent> <C-j> :call WinMove('j')<cr>
+nnoremap <silent> <C-k> :call WinMove('k')<cr>
+
 set wmh=0
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-inoremap <c-j> <esc><c-w>j
-inoremap <c-k> <esc><c-w>k
 map <c-_> <c-w>_
 inoremap <c-_> <esc><c-w>_a
-"map <c-h> <c-w>h<c-w>\|
-"map <c-l> <c-w>l<c-w>\|
 
 " my custom bookmarks
 map :b<CR> :e ~/.vim/bookmarks<CR>
@@ -365,7 +381,6 @@ command! DateAdd execute "normal! k:r ~/.vim/templates/DateAdd\<CR>"
 command! DBIAll execute "normal! k:r ~/.vim/templates/DBIAll\<CR>"
 command! DBIRow execute "normal! k:r ~/.vim/templates/DBIRow\<CR>"
 command! Dumper execute "normal! k:r ~/.vim/templates/Dumper\<CR>2j$hh"
-command! Newscratch execute "normal! :new\<CR>:setlocal buftype=nofile\<CR>"
 command! Parent execute "normal! :let _s=@/\<CR>/^use [base|parent]\<CR>WWl\<C-w>f:let @/=_s\<CR>\<C-w>_"
 command! Sub execute "normal! k:r ~/.vim/templates/Sub\<CR>W"
 command! Time execute "normal! k:r ~/.vim/templates/Time\<CR>"
@@ -375,9 +390,6 @@ command! Use execute "normal! :let _s=@/\<CR>mvlBy$G?^use\<CR>o\<Esc>P0iuse \<Es
 command! DumpFileName execute "normal! :let @\" = expand(\"%\")\<CR>\<C-w>ko\<Esc>p"
 command! StageFile execute "normal! :DumpFileName\<CR>\<C-w>j:quit\<CR>"
 command! CommitFiles execute "normal! ggj\<S-v>}JIsvn commit \<Esc>0v$h\"vy:!\<C-r>v\<CR>"
-
-" open a new window below the current one
-command! Newx execute "normal! :new\<CR>\<C-w>x\<C-w>j"
 
 
 " from http://stackoverflow.com/a/14651443/59867:
