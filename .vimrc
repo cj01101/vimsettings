@@ -67,6 +67,17 @@ map \tn :tabnew<cr>
 map \to :tabonly<cr>
 map \tc :tabclose<cr>
 
+" TODO
+function! ToggleTodo()
+    if getline('.') =~ '# TODO'
+        exe "s/# TODO.*//"
+    else
+        exe "norm!A # TODO"
+    endif
+endfunction
+map \T :call ToggleTodo()<cr>
+inoremap \T <esc>h:call ToggleTodo()<cr>
+
 " center screen when jumping to a tag
 map <c-]> <c-]>zz
 map <c-w>] <c-w>]zz
@@ -113,10 +124,7 @@ map gF $F)hi,<esc>$F)%ls	<esc>:s/,/,\r/g<cr><s-v>%jj='><<:noh<cr>
 set pastetoggle=<leader>p
 
 " breakpoint
-function! ToggleBreakpoint()
-    exe "normal! O$DB::single=1; # TODO"
-endfunction
-map \b :call ToggleBreakpoint()<CR>
+map \b :norm! O$DB::single=1; # TODO<cr>
 
 function! DataPrinter()
     exe "normal! Ouse Data::Printer { max_depth => 0 };\nprint p ;"
