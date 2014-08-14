@@ -43,31 +43,33 @@ command! GlobalReplace execute '%s//\=@s/g'
 set background=dark
 
 " toggle number
-"map \n :set nonumber!<CR>  " use 'con' from unimpaired.vim plugin
 set number
 
-" select all
-map \a ggVG
+" leader mappings
+let mapleader = "\<Space>"
 
-" faster quit
-map \q :q<CR>
+" select all
+map <leader>a ggVG
+
+" faster quit, etc
+map <leader>q :q<CR>
+map <leader>w :w<CR>
 
 " faster only
-map \o :on<CR>
+map <leader>o :on<CR>
 
-map \s :Sexplore<CR>
-map \e :Explore<CR>
+map <leader>s :Sexplore<CR>
+map <leader>e :Explore<CR>
 
 " Tabularize
-map \= :Tab /=<CR>
-map \> :Tab /=><CR>
+map <leader>= :Tab /=<CR>
+map <leader>> :Tab /=><CR>
 
 " tabs
-map \tn :tabnew<cr>
-map \to :tabonly<cr>
-map \tc :tabclose<cr>
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
 
-" TODO
 function! ToggleTodo()
     if getline('.') =~ '# TODO'
         exe "s/ *# TODO.*//"
@@ -77,6 +79,17 @@ function! ToggleTodo()
 endfunction
 map \T :call ToggleTodo()<cr>
 inoremap \T <esc>h:call ToggleTodo()<cr>
+
+" toggle paste
+set pastetoggle=\\p
+
+" breakpoint
+map <leader>b :norm! O$DB::single=1; # TODO<cr>
+
+function! DataPrinter()
+    exe "normal! Ouse Data::Printer { max_depth => 0 };\nprint p ;"
+endfunction
+map <leader>r :call DataPrinter()<CR>i
 
 " center screen when jumping to a tag
 map <c-]> <c-]>zz
@@ -120,17 +133,6 @@ map gD B:call search('\v\d{4}-\d{2}-\d{2}', 'b')<cr>9l:noh<cr>
 " break function params
 map gF :s/ );$/, );<cr>$F)%ls	<esc>:s/,/,\r/g<cr><s-v>%jj='><<:noh<cr>
 map gI ddkkP<<$xj>>f(2x$hC;<esc>jdj
-
-" toggle paste
-set pastetoggle=<leader>p
-
-" breakpoint
-map \b :norm! O$DB::single=1; # TODO<cr>
-
-function! DataPrinter()
-    exe "normal! Ouse Data::Printer { max_depth => 0 };\nprint p ;"
-endfunction
-map \r :call DataPrinter()<CR>i
 
 " clear hlsearch too
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
