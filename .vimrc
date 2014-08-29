@@ -134,6 +134,10 @@ map gD B:call search('\v\d{4}-\d{2}-\d{2}', 'b')<cr>9l:noh<cr>
 map gF :s/ );$/, );<cr>$F)%ls	<esc>:s/,/,\r/g<cr><s-v>%jj='><<:noh<cr>
 map gI ddkkP<<$xj>>f(2x$hC;<esc>jdj
 
+" undo/redo all
+map gU 99999u
+map gR 99999<c-r>
+
 " clear hlsearch too
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
@@ -246,8 +250,10 @@ inoremap <tab> <c-r>=InsertTabWrapper ("backward")<cr>
 set nobackup
 set nowritebackup
 
-set textwidth=0
+" don't wrap in buffer
+set textwidth=99999
 set wrap
+autocmd BufNewFile,BufRead * setlocal formatoptions=rq
 
 " shell command
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
@@ -273,8 +279,7 @@ endfunction
 " perl compiler
 nnoremap <silent> =c :w<Enter>:!perl -wc %<Enter>
 " more warnings:
-"nnoremap <silent> =w :w<Enter>:!perl -Wc %<Enter>
-nnoremap <silent> =w :w<Enter>:Shell perl -Wc %<Enter><Enter>GEl"xyT//<c-r>x<Enter>
+nnoremap <silent> =w :w<Enter>:!perl -Wc %<Enter>
 " debugger
 nnoremap <silent> =d :w<Enter>:!perl -d %<Enter>
 
