@@ -80,6 +80,12 @@ endfunction
 map \T :call ToggleTodo()<cr>
 inoremap \T <esc>h:call ToggleTodo()<cr>
 
+function! ExpandDateQuery()
+    exe "normal! a'\<Esc>Bi'\<Esc>itimestamp between \<Esc>l\"xyEEa and \<c-r>x\<Esc>h\<c-a>l"
+endfunction
+map \D :call ExpandDateQuery()<cr>
+inoremap \D <esc>:call ExpandDateQuery()<cr>
+
 " toggle paste
 set pastetoggle=\\p
 
@@ -132,7 +138,10 @@ map gD B:call search('\v\d{4}-\d{2}-\d{2}', 'b')<cr>9l:noh<cr>
 
 " break function params
 map gF :s/ );$/, );<cr>$F)%ls	<esc>:s/,/,\r/g<cr><s-v>%jj='><<:noh<cr>
-map gI ddkkP<<$xj>>f(2x$hC;<esc>jdj
+
+" if line to block - cursor on the i in 'if'
+map gb ^Wdw$hC;<esc>2jdd2kP<<Jhxjdj
+map gB hs<cr><esc>ddkPWv$F;hS($xo{<esc>j>>A;<cr><s-tab>}<esc>
 
 " undo/redo all
 map gU 99999u
