@@ -182,7 +182,6 @@ function! MyVimuxPerlDebug()
 endfunction
 
 map =t :call VimuxRunCommand( "" )<left><left><left>
-map =l :call VimuxRunLastCommand()<CR>
 map =q :call VimuxCloseRunner()<CR>
 map =p :call MyVimuxCD( '' )<CR>
 map =f :call MyVimuxCD( 'fastprove' )<CR>
@@ -297,13 +296,18 @@ function! MyRunFile()
     let filetype = GetFileType()
     if filetype == '.t'
         " use Test::Pretty
-        " execute "!prove --verbose --comments --recurse -Pretty %"
-        execute "!prove --verbose --comments --recurse %"
+        " execute "!prove --verbose --comments --recurse -Pretty " . expand('%')
+        let cmd_to_run = "!prove --verbose --comments --recurse " . expand('%')
     else
-        execute "!%"
+        let cmd_to_run = "!" . expand('%')
     endif
+    " put command in x register
+    let @x = cmd_to_run
+    execute cmd_to_run
 endfunction
 nnoremap <silent> =r :w<Enter>:call MyRunFile()<CR>
+nnoremap <silent> =l :w<Enter>:<c-r>x<CR>
+
 
 " Executes a command (across a given range) and restores the search register
 " when done.
@@ -352,9 +356,6 @@ command! Qa execute ":qa"
 
 " sudo save
 command! Sudo execute ":w !sudo tee %"
-
-" put path in unnamed register
-command! Path let @" = expand("%:h")
 
 " curly should jump to lines with only spaces
 function! ParagraphMove(delta, visual, count)
