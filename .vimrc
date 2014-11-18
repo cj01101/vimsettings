@@ -1,3 +1,12 @@
+" vim-bookmarks mappings
+nmap gm <Plug>BookmarkToggle
+nmap ga <Plug>BookmarkAnnotate
+nmap gs <Plug>BookmarkShowAll
+nmap gn <Plug>BookmarkNext
+nmap gp <Plug>BookmarkPrev
+nmap gc <Plug>BookmarkClear
+nmap gz <Plug>BookmarkClearAll
+
 set backspace=indent,start,eol
 
 " autoindent same as last line
