@@ -95,6 +95,12 @@ endfunction
 map \D :call ExpandDateQuery()<cr>
 inoremap \D <esc>:call ExpandDateQuery()<cr>
 
+function! JumpToSchemaTag(word)
+    exe "/name=\"".a:word."\""
+endfunction
+map \S :call JumpToSchemaTag( "<c-r><c-w>" )<cr>
+inoremap \S <esc>:call JumpToSchemaTag( "<c-r><c-w>" )<cr>
+
 " toggle paste
 set pastetoggle=\\p
 
