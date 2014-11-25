@@ -51,6 +51,8 @@ command! GlobalReplace execute '%s//\=@s/g'
 
 set background=dark
 
+nnoremap K <nop>
+
 " toggle number
 set number
 
