@@ -157,7 +157,7 @@ map gd :call search('\v\d{4}-\d{2}-\d{2}')<cr>9l:noh<cr>
 map gD B:call search('\v\d{4}-\d{2}-\d{2}', 'b')<cr>9l:noh<cr>
 
 " break function params
-map gF :s/ );$/, );<cr>$F)%ls	<esc>:s/,/,\r/g<cr><s-v>%jj='><<:noh<cr>
+map gF :s/ );$/, );<cr>$F)%ls<cr><tab><esc>:s/,/,\r/g<cr><s-v>%jj='><<:noh<cr>
 
 " if line to block - cursor on the i in 'if'
 map gb ^Wdw$hC;<esc>2jdd2kP<<Jhxjdj
