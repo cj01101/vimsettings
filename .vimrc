@@ -81,6 +81,9 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 
+" mysql output => csv
+map <leader>m :%s/\v[\| ][\| ]+/","/g<bar>%s/^",//<bar>%s/,"$//g<cr>
+
 function! ToggleTodo()
     if getline('.') =~ '# TODO'
         exe "s/ *# TODO.*//"
