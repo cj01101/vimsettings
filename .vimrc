@@ -72,6 +72,9 @@ map <leader>o :on<CR>
 map <leader>s :Sexplore<CR>
 map <leader>e :Explore<CR>
 
+" paste into last place
+map <leader>p gi<c-r>"<esc>
+
 " Tabularize
 map <leader>= :Tab /=<CR>
 map <leader>> :Tab /=><CR>
