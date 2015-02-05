@@ -84,6 +84,9 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 
+" add new lines (for Outlook webmail) and copy to windows clipboard
+map <leader>c :g/^$/norm O<cr>ggVG"+y
+
 " mysql output => csv
 map <leader>m :%s/\v[\| ][\| ]+/","/g<bar>%s/^",//<bar>%s/,"$//g<cr>
 
