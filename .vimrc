@@ -90,6 +90,13 @@ map <leader>c :g/^$/norm O<cr>ggVG"+y
 " mysql output => csv
 map <leader>m :%s/\v[\| ][\| ]+/","/g<bar>%s/^",//<bar>%s/,"$//g<cr>
 
+" jump to schema tag
+function! JumpToSchemaTag(word)
+    exe "/name=\"".a:word."\""
+endfunction
+map <leader>S :call JumpToSchemaTag( "<c-r><c-w>" )<cr>
+inoremap <leader>S <esc>:call JumpToSchemaTag( "<c-r><c-w>" )<cr>
+
 function! ToggleTodo()
     if getline('.') =~ '# TODO'
         exe "s/ *# TODO.*//"
@@ -105,12 +112,6 @@ function! ExpandDateQuery()
 endfunction
 map \D :call ExpandDateQuery()<cr>
 inoremap \D <esc>:call ExpandDateQuery()<cr>
-
-function! JumpToSchemaTag(word)
-    exe "/name=\"".a:word."\""
-endfunction
-map \S :call JumpToSchemaTag( "<c-r><c-w>" )<cr>
-inoremap \S <esc>:call JumpToSchemaTag( "<c-r><c-w>" )<cr>
 
 " toggle paste
 set pastetoggle=\\p
