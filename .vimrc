@@ -94,8 +94,8 @@ map <leader>m :%s/\v[\| ][\| ]+/","/g<bar>%s/^",//<bar>%s/,"$//g<cr>
 function! JumpToSchemaTag(word)
     exe "/name=\"".a:word."\""
 endfunction
-map <leader>S :call JumpToSchemaTag( "<c-r><c-w>" )<cr>
-inoremap <leader>S <esc>:call JumpToSchemaTag( "<c-r><c-w>" )<cr>
+map <leader>x :call JumpToSchemaTag( "<c-r><c-w>" )<cr>
+inoremap <leader>x <esc>:call JumpToSchemaTag( "<c-r><c-w>" )<cr>
 
 function! ToggleTodo()
     if getline('.') =~ '# TODO'
