@@ -95,7 +95,6 @@ function! JumpToSchemaTag(word)
     exe "/name=\"".a:word."\""
 endfunction
 map <leader>x :call JumpToSchemaTag( "<c-r><c-w>" )<cr>
-inoremap <leader>x <esc>:call JumpToSchemaTag( "<c-r><c-w>" )<cr>
 
 function! ToggleTodo()
     if getline('.') =~ '# TODO'
