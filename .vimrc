@@ -469,4 +469,8 @@ cnoremap <expr> %_ getcmdtype() == ':' ? expand('%') : '%_'
 if filereadable("/home/chrisj/.vim.work")
     so /home/chrisj/.vim.work
 endif
+if filereadable("_vim_work")
+    so _vim_work
+endif
+
 
