@@ -173,6 +173,14 @@ map gB hs<cr><esc>ddkPWv$F;hS($xo{<esc>j>>A;<cr><s-tab>}<esc>
 map gU 99999u
 map gR 99999<c-r>
 
+" persistent undo
+if exists("&undodir")
+    set undofile
+    let &undodir=&directory
+    set undolevels=500
+    set undoreload=500
+endif
+
 " clear hlsearch too
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
