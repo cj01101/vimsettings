@@ -427,6 +427,21 @@ function! ParagraphMove(delta, visual, count)
     normal |
 endfunction
 
+function! Sum(number)
+    let g:S = g:S + a:number
+    return a:number
+endfunction
+
+function! DoSum()
+    let g:S = 0  "result in global variable S
+    exe "normal! :%s/\\d\\+/\\=Sum(submatch(0))/\<CR>"
+endfunction
+
+function! PrintSum()
+    let @x = g:S
+    exe "normal! '>o\<c-r>x\<Esc>"
+endfunction
+
 nnoremap <silent> } :<C-U>call ParagraphMove( 1, 0, v:count)<CR>
 onoremap <silent> } :<C-U>call ParagraphMove( 1, 0, v:count)<CR>
 " vnoremap <silent> } :<C-U>call ParagraphMove( 1, 1)<CR>
