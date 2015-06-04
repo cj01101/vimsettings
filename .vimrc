@@ -56,6 +56,10 @@ nnoremap K <nop>
 " toggle number
 set number
 
+" :e %% expands to the path of the active buffer
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+cnoremap <expr> %_ getcmdtype() == ':' ? expand('%') : '%_'
+
 " leader mappings
 let mapleader = "\<Space>"
 
@@ -69,7 +73,8 @@ map <leader>w :w<CR>
 " faster only
 map <leader>o :on<CR>
 
-map <leader>s :Sexplore<CR>
+"map <leader>s :Sexplore<CR> # windows
+map <leader>s :tabedit %%<CR>
 map <leader>e :Explore<CR>
 
 " paste into last place
@@ -80,7 +85,7 @@ map <leader>= :Tab /=<CR>
 map <leader>> :Tab /=><CR>
 
 " tabs
-map <leader>tn :tabnew<cr>
+map <leader>n :tabnew<cr>:setlocal buftype=nofile<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 
@@ -239,25 +244,28 @@ colorscheme solarized
 
 "switch between windows more easily
 
-func! WinMove(key)
-    let t:curwin = winnr()
-    exec "wincmd ".a:key
-    if (t:curwin == winnr())
-        wincmd n
-        if (a:key == 'j')
-            wincmd x
-        endif
-        exec "wincmd ".a:key
-        exec ":setlocal buftype=nofile"
-    endif
-endfu
+"func! WinMove(key)
+"    let t:curwin = winnr()
+"    exec "wincmd ".a:key
+"    if (t:curwin == winnr())
+"        wincmd n
+"        if (a:key == 'j')
+"            wincmd x
+"        endif
+"        exec "wincmd ".a:key
+"        exec ":setlocal buftype=nofile"
+"    endif
+"endfu
+"
+"nnoremap <silent> <C-j> :call WinMove('j')<cr>
+"nnoremap <silent> <C-k> :call WinMove('k')<cr>
+"
+"set wmh=0
+"map <c-_> <c-w>_
+"inoremap <c-_> <esc><c-w>_a
 
-nnoremap <silent> <C-j> :call WinMove('j')<cr>
-nnoremap <silent> <C-k> :call WinMove('k')<cr>
-
-set wmh=0
-map <c-_> <c-w>_
-inoremap <c-_> <esc><c-w>_a
+nnoremap <silent> <c-n> :tabnext<cr>
+nnoremap <silent> <c-p> :tabprevious<cr>
 
 " my custom bookmarks
 map :b<CR> :e ~/.vim/bookmarks<CR>
@@ -485,15 +493,12 @@ endfunction
 " bash-style tab complete
 set wildmode=longest,list
 
-" :e %% expands to the path of the active buffer
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-cnoremap <expr> %_ getcmdtype() == ':' ? expand('%') : '%_'
-
 if filereadable("/home/chrisj/.vim.work")
     so /home/chrisj/.vim.work
 endif
 if filereadable("_vim_work")
     so _vim_work
 endif
+
 
 
