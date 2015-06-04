@@ -85,9 +85,9 @@ map <leader>= :Tab /=<CR>
 map <leader>> :Tab /=><CR>
 
 " tabs
-map <leader>n :tabnew<cr>:setlocal buftype=nofile<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
+map <c-t> :tabnew<cr>:setlocal buftype=nofile<cr>
+"map <leader>to :tabonly<cr>
+"map <leader>tc :tabclose<cr>
 
 " add new lines (for Outlook webmail) and copy to windows clipboard
 map <leader>c :g/^$/norm O<cr>ggVG"+y
