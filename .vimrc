@@ -267,6 +267,9 @@ colorscheme solarized
 nnoremap <silent> <c-n> :tabnext<cr>
 nnoremap <silent> <c-p> :tabprevious<cr>
 
+nnoremap <silent> <c-j> <c-w>j<c-_>
+nnoremap <silent> <c-k> <c-w>k<c-_>
+
 " my custom bookmarks
 map :b<CR> :e ~/.vim/bookmarks<CR>
 
