@@ -89,6 +89,9 @@ map <c-t> :tabnew<cr>:setlocal buftype=nofile<cr>
 "map <leader>to :tabonly<cr>
 "map <leader>tc :tabclose<cr>
 
+" change from a scratch buffer so I can save:
+map <leader>b :set buftype=
+
 " add new lines (for Outlook webmail) and copy to windows clipboard
 map <leader>c :g/^$/norm O<cr>ggVG"+y
 
@@ -121,7 +124,7 @@ inoremap \D <esc>:call ExpandDateQuery()<cr>
 set pastetoggle=\\p
 
 " breakpoint
-map <leader>b :norm! O$DB::single=1; # TODO<cr>
+"map <leader>b :norm! O$DB::single=1; # TODO<cr>
 
 function! DataPrinter()
     exe "normal! Ouse Data::Printer { max_depth => 0 };\nprint p ;"
