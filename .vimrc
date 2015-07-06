@@ -90,7 +90,7 @@ map <c-t> :tabnew<cr>:setlocal buftype=nofile<cr>
 "map <leader>tc :tabclose<cr>
 
 " change from a scratch buffer so I can save:
-map <leader>b :set buftype=
+map <leader>b :set buftype=<CR>
 
 " add new lines (for Outlook webmail) and copy to windows clipboard
 map <leader>c :g/^$/norm O<cr>ggVG"+y
